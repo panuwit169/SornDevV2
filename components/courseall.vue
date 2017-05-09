@@ -2,23 +2,22 @@
   <div class="course">
     <div class="container">
       <div class="title">
-        <h1><strong>คู่มือเทคโนโลยีล่าสุด<br>Front-End และ Frameworks</strong></h1>
+        <h1><strong>Course เรียนทั้งหมด<br>ทั้ง Front-End และ Frameworks ต่าง ๆ</strong></h1>
       </div>
-        <div class="columns">
-          <div class="column is-2" v-for = "(list, index) in listplay" v-show="index<6">
-            <div class="box">
-              <nuxt-link :to="{ name: 'course-course', params: { course: list.name }}" style="vertical-align: middle">
-                <img :src="list.img" width="120">
-              <h4>
-                {{list.name}}
-              </h4>
-              </nuxt-link>
-            </div>
+      <div class="columns is-multiline">
+        <div class="column is-4" v-for = "list in listplay">
+          <div class="box">
+            <nuxt-link :to="{ name: 'course-course', params: { course:list.name }}">
+              <div style="vertical-align: middle">
+                <img class="menu" :src="list.img" width="100px">
+                <h4> {{list.name}}  <span class="tag is-Light">{{list.list.length}}</span></h4>
+                <p style="color:#999">โดย {{list.teacher}}</p>
+              </div>
+            </nuxt-link>
           </div>
         </div>
-        <nuxt-link to = "/allcourse" class="title">เลือก Course อื่น ๆ</nuxt-link>
+      </div>
     </div>
-    <hr>
   </div>
 </template>
 
@@ -46,8 +45,8 @@
   }
 </script>
 
-
 <style scoped>
+
   .title{
     margin-bottom: 50px;
   }
@@ -82,6 +81,8 @@
   }
 
   .course{
-    margin-top: 100px;
+    padding: 100px 0 50px 0;
+    border-bottom: 1px solid #eee;
+
   }
 </style>

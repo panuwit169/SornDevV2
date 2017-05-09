@@ -5,7 +5,7 @@
         <nuxt-link to="/" class="nav-item">
           <img src="../assets/learning.png" alt="SornDev">
         </nuxt-link>
-        <nuxt-link to="/course" class="nav-item is-tab is-hidden-mobile">Courses</nuxt-link>
+        <nuxt-link to="/allcourse" class="nav-item is-tab is-hidden-mobile">Courses</nuxt-link>
         <nuxt-link to="/ebook" class="nav-item is-tab is-hidden-mobile">E-Book</nuxt-link>
       </div>
       <span class="nav-toggle">
@@ -26,7 +26,7 @@
 
   .nav {
     background-color: #1b1920;
-    height: 80px;
+    height: 75px;
   }
 
   .nav-item img {

@@ -4,7 +4,7 @@
       <div class="container">
           <h1 class="banner_h1">วิดีโอการสอน Web Development สำหรับ Developer</h1>
           <p class="banner_p">เรียนรู้ Frameworks ล่าสุดจากผู้เชี่ยวชาญเฉพาะทาง</p>
-          <nuxt-link to = "/course">
+          <nuxt-link to = "/allcourse">
             <button class="button is-danger is-medium"><strong>เลือก Course เรียน</strong></button>
           </nuxt-link>
         </div>

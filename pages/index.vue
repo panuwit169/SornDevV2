@@ -4,6 +4,7 @@
     <banner/>
     <coursemenu/>
     <banner2/>
+    <popular/>
   </div>
 </template>
 
@@ -13,13 +14,15 @@ import navbar from '~components/navbar.vue'
 import banner from '~components/banner.vue'
 import coursemenu from '~components/coursemenu.vue'
 import banner2 from '~components/banner2.vue'
+import popular from '~components/popular.vue'
 
 export default {
   components: {
     navbar,
     banner,
     coursemenu,
-    banner2
+    banner2,
+    popular
   }
 }
 </script>
