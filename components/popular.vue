@@ -15,7 +15,7 @@
                 <img class="img" :src="list.img" width="120">
               </div>
               <div class="column is-8 title">
-                <nuxt-link :to="{ name: 'course-course', params: { course:list.name }}">
+                <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}">
                   เริ่มต้นศึกษา {{list.name}}
                 </nuxt-link>
                 <hr>

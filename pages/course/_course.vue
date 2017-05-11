@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navbar/>
-    <iframe class="embed-responsive-item" :src="'https://www.youtube.com/embed/'+ link + '?autoplay=1'"  frameborder="0" allowfullscreen ></iframe>
+    <!-- <iframe class="embed-responsive-item" :src="'https://www.youtube.com/embed/'+ link + '?autoplay=1'"  frameborder="0" allowfullscreen ></iframe>
     <div>
       <div v-for ="(list, index) in course.list" @click = "setlink(list.link)">
         <a class="list">
@@ -12,7 +12,8 @@
           </div>
         </a>
       </div>
-    </div>
+    </div> -->
+    {{ course }}
   </div>
 </template>
 
@@ -27,7 +28,9 @@ export default {
   },
   data () {
     return {
-      link: ''
+      link: '',
+      courses: {},
+      test: {}
     }
   },
   computed: {
@@ -36,17 +39,13 @@ export default {
     ]),
     course: function () {
       let vm = this
-      return vm.listplay.find(item => item.name === vm.$route.params.course)
+      this.courses = vm.listplay.find(item => item.name === vm.$route.params.course)
+      localStorage.setItem('course', JSON.stringify(this.courses))
+      return this.courses
     }
   },
   mounted () {
-    this.link = this.course.list[0].link
-    // this.setListplayRef(this.$db.ref('listplay'))
-  },
-  methods: {
-    setlink: function (link) {
-      this.link = link
-    }
+    this.course = localStorage.getItem('course')
   }
 }
 </script>

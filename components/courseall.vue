@@ -7,7 +7,7 @@
       <div class="columns is-multiline">
         <div class="column is-4" v-for = "list in listplay">
           <div class="box">
-            <nuxt-link :to="{ name: 'course-course', params: { course:list.name }}">
+            <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}">
               <div style="vertical-align: middle">
                 <img class="menu" :src="list.img" width="100px">
                 <h4> {{list.name}}  <span class="tag is-Light">{{list.list.length}}</span></h4>

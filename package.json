@@ -5,7 +5,11 @@
   "author": "",
   "private": true,
   "dependencies": {
-    "nuxt": "latest"
+    "bulma": "^0.4.1",
+    "firebase": "^3.9.0",
+    "nuxt": "latest",
+    "vue-localstorage": "^0.2.0",
+    "vuexfire": "^2.1.1"
   },
   "scripts": {
     "dev": "nuxt",
