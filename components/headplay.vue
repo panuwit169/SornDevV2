@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="columns">
-        <div class="column is-12" style="margin: -50px 0;">
+        <div class="column is-12" style="margin: -30px 0 -40px 0;">
           <div class="description">
             <p>{{info.description}}</p>
           </div>

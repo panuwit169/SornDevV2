@@ -3,6 +3,7 @@
   <navbar/>
   <videoplay :courses="courses"/>
   <headplay :info="courses" />
+  <comment/>
 </div>
 </template>
 
@@ -12,12 +13,14 @@ import { mapGetters } from 'vuex'
 import navbar from '~components/navbar.vue'
 import videoplay from '~components/videoplay.vue'
 import headplay from '~components/headplay.vue'
+import comment from '~components/comment.vue'
 
 export default {
   components: {
     navbar,
     videoplay,
-    headplay
+    headplay,
+    comment
   },
   data () {
     return {
