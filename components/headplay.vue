@@ -1,28 +1,36 @@
 <template>
-<div id="app">
-  <navbar/>
-  <videoplay :courses="courses"/>
-  <headplay :info="courses" />
-</div>
+  <div class="video is-hidden-mobile">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-12 title is-pulled-left" style="margin: -20px 0;">
+            <li>
+              <img :src="info.img" width="70">
+            </li>
+            <li>
+              <h1 style="color: #555; margin: 20px"><strong>{{info.name}}</strong>&nbsp;<small style="font-size:15px;color:#999">สอนโดย {{ info.teacher }}</small></h1>
+            </li>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-12" style="margin: -50px 0;">
+          <div class="description">
+            <p>{{info.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import 'bulma/css/bulma.css'
 import { mapGetters } from 'vuex'
-import navbar from '~components/navbar.vue'
-import videoplay from '~components/videoplay.vue'
-import headplay from '~components/headplay.vue'
 
 export default {
-  components: {
-    navbar,
-    videoplay,
-    headplay
-  },
+  props: ['info'],
   data () {
     return {
-      courses: {},
-      link: ''
+      courses: {}
     }
   },
   computed: {
@@ -34,15 +42,6 @@ export default {
       this.courses = vm.listplay.find(item => item.name === vm.$route.params.lesson)
       return this.courses
     }
-  },
-  mounted () {
-    if (localStorage.getItem('course') !== undefined) {
-      localStorage.setItem('course', JSON.stringify(this.lesson))
-    } else {
-      this.courses = localStorage.getItem('course')
-    }
-    this.link = this.$route.params.lesson
-    console.log(this.link)
   }
 }
 </script>
@@ -51,11 +50,6 @@ export default {
   #app {
     font-family: 'Kanit', sans-serif;
     text-align: center;
-  }
-.title{
-    margin-bottom: 20px;
-    text-align: left;
-    display: inline-block;
   }
 
   li{
@@ -97,11 +91,8 @@ export default {
 
   .video{
     padding: 50px 0 50px 0;
-    background-color: #1b1920;
+    background-color: #fff;
     color: #666;
   }
 
-  .header{
-    border-bottom :1px solid #666;
-  }
 </style>

@@ -7,7 +7,7 @@
         <div class="columns">
           <div class="column is-2" v-for = "(list, index) in listplay" v-show="index<6">
             <div class="box">
-              <nuxt-link :to="{ name: 'course-lesson', params: { course: list.name }}" style="vertical-align: middle">
+              <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}" style="vertical-align: middle">
                 <img :src="list.img" width="120">
               <h4>
                 {{list.name}}

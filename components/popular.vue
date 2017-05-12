@@ -1,5 +1,5 @@
 <template>
-  <div class="popular">
+  <div class="popular is-hidden-mobile">
     <div class="popular_inner">
       <div class="container">
         <div class="columns is-multiline">
@@ -20,7 +20,7 @@
                 </nuxt-link>
                 <hr>
                 <p style="display:inline-block">กับ {{list.teacher}}</p>
-                <nuxt-link :to="{ name: 'course-course', params: { course:list.name }}">
+                <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}">
                   <img class="is-pulled-right"src="../assets/play.png" width="50px">
                 </nuxt-link>
               </div>

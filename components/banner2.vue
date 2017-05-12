@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main is-hidden-mobile">
     <div class="container">
       <div class="columns">
         <div class="column is-6">
