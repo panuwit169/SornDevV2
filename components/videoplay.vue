@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="column is-3 scrollbar" id="style-1">
-          <div v-for="(lists, index) in courses.list" @click = "setlink(lists.link)">
+          <div v-for="(lists, index) in list" @click = "setlink(lists.link)">
             <a class="list">
               <div class="img">
                 <strong style="padding:0 10px;color:#dbdbdb;">{{index+1}}</strong>
@@ -29,7 +29,8 @@
     props: ['courses'],
     data () {
       return {
-        link: ''
+        link: '',
+        list: {}
       }
     },
     computed: {
@@ -43,7 +44,7 @@
     },
     mounted () {
       this.link = this.courses.list[0].link
-      console.log(this.courses)
+      this.list = this.courses.list
     },
     methods: {
       setlink (link) {

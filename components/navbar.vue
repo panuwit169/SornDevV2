@@ -75,9 +75,6 @@
           vm.profile = user
         }
         vm.ready = true
-        console.log(vm.authorized)
-        console.log(vm.profile)
-        console.log(vm.ready)
       })
       firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {}

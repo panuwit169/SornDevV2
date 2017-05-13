@@ -1,39 +1,39 @@
 <template>
   <div class="comment">
     <div class="box container">
-      <article class="media">
+      <article class="media" v-for="comment in comments">
         <figure class="media-left">
           <p class="image is-64x64">
-            <img src="http://bulma.io/images/placeholders/128x128.png">
+            <img :src="comment.img" style="border-radius: 50%">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>Barbara Middleton</strong>
+              <strong>{{ comment.name }}</strong>
               <br>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+              {{ comment.message }}
               <br>
             </p>
           </div>
         </div>
       </article>
-      <div v-if="ready">
+      <div v-if="authorized" style="padding-top:20px">
         <article class="media">
           <figure class="media-left">
             <p class="image is-64x64">
-              <img :src="profile.photoURL">
+              <img :src="profile.photoURL" style="border-radius: 50%">
             </p>
           </figure>
           <div class="media-content">
             <div class="field">
               <p class="control">
-                <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                <textarea class="textarea" v-model="commentInput" placeholder="Add a comment..."></textarea>
               </p>
             </div>
             <div class="field">
               <p class="control">
-                <button class="button">Post comment</button>
+                <button class="button" @click="addComment()">Post comment</button>
               </p>
             </div>
           </div>
@@ -44,35 +44,51 @@
 </template>
 
 <script>
+
   import firebase from 'firebase'
   import { mapGetters } from 'vuex'
 
+  var keys = ''
+  var database = firebase.database()
+  var messageRef
+  console.log(keys)
+
   export default {
-    name: 'app',
+    props: ['courses'],
     data () {
       return {
-        profile: {}
+        profile: {},
+        ready: false,
+        authorized: false,
+        comments: {},
+        commentInput: '',
+        keys: ''
       }
     },
     computed: {
       ...mapGetters([
         'listplay'
-      ])
+      ]),
+      courses () {
+        let vm = this
+        return vm.listplay.find(item => item.name === vm.$route.params.lesson)
+      }
     },
     methods: {
-      // login () {
-      //   firebase.auth().signInWithRedirect(provider)
-      //   this.$router.push('/')
-      // },
-      // logout () {
-      //   let vm = this
-      //   firebase.auth().signOut().then(function () {
-      //     vm.authorized = false
-      //   }, function (error) {
-      //     console.error(error)
-      //   })
-      //   this.$router.push('/')
-      // }
+      addComment () {
+        this.comments.push({
+          message: this.commentInput,
+          name: this.profile.displayName,
+          img: this.profile.photoURL
+        })
+        messageRef.child(this.comments.length - 1).set({
+          message: this.commentInput,
+          name: this.profile.displayName,
+          img: this.profile.photoURL
+        })
+        this.commentInput = ''
+        console.log(this.comments)
+      }
     },
     mounted () {
       let vm = this
@@ -88,6 +104,10 @@
       }).catch((error) => {
         console.error(error)
       })
+      this.comments = this.courses.comment
+      keys = this.courses[Object.keys(this.courses)[6]]
+      messageRef = database.ref('listplay/' + keys + '/comment')
+      console.log(this.comments.length)
     }
   }
 </script>

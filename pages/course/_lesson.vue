@@ -3,7 +3,7 @@
   <navbar/>
   <videoplay :courses="courses"/>
   <headplay :info="courses" />
-  <comment/>
+  <comment :courses="courses"/>
 </div>
 </template>
 
@@ -45,7 +45,6 @@ export default {
       this.courses = localStorage.getItem('course')
     }
     this.link = this.$route.params.lesson
-    console.log(this.link)
   }
 }
 </script>

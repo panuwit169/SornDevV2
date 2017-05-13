@@ -9,6 +9,7 @@
     "firebase": "^3.9.0",
     "nuxt": "latest",
     "vue-localstorage": "^0.2.0",
+    "vuefire": "^1.4.2",
     "vuexfire": "^2.1.1"
   },
   "scripts": {
