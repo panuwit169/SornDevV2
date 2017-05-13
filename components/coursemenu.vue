@@ -10,7 +10,7 @@
               <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}" style="vertical-align: middle">
                 <img :src="list.img" width="120">
               <h4>
-                {{list.name}}
+                {{ list.name }}
               </h4>
               </nuxt-link>
             </div>

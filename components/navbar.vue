@@ -16,11 +16,77 @@
       <div class="nav-right nav-menu">
         <nuxt-link to="/course" class="nav-item is-tab is-hidden-tablet is-active">Courses</nuxt-link>
         <nuxt-link to="/ebook" class="nav-item is-tab is-hidden-tablet">E-Book</nuxt-link>
-        <nuxt-link to="/" class="nav-item is-tab">Login with Facebook</nuxt-link>
+        <div v-if="ready">
+          <div v-if="authorized">
+            <a class="nav-item is-tab" @click="logout()">
+              <img class="image is-32x32" :src="profile.photoURL" alt="" style="display: inline;margin:0 15px;border-radius: 50%;">
+              <p style="display: inline;">{{ profile.displayName }}</p>
+            </a>
+          </div>
+          <div v-else>
+            <a class="nav-item is-tab" @click="login()">Login with Facebook</a>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+  import firebase from 'firebase'
+  import { mapGetters } from 'vuex'
+
+  var provider = new firebase.auth.FacebookAuthProvider()
+
+  export default {
+    name: 'app',
+    data () {
+      return {
+        profile: {},
+        ready: false,
+        authorized: false
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'listplay'
+      ])
+    },
+    methods: {
+      login () {
+        firebase.auth().signInWithRedirect(provider)
+        this.$router.push('/')
+      },
+      logout () {
+        let vm = this
+        firebase.auth().signOut().then(function () {
+          vm.authorized = false
+        }, function (error) {
+          console.error(error)
+        })
+        this.$router.push('/')
+      }
+    },
+    mounted () {
+      let vm = this
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          vm.authorized = true
+          vm.profile = user
+        }
+        vm.ready = true
+        console.log(vm.authorized)
+        console.log(vm.profile)
+        console.log(vm.ready)
+      })
+      firebase.auth().getRedirectResult().then(function (result) {
+        if (result.credential) {}
+      }).catch((error) => {
+        console.error(error)
+      })
+    }
+  }
+</script>
 
 <style>
 
@@ -36,6 +102,10 @@
   .nav-item a.is-tab, a.nav-item.is-tab {
     padding: 20px 30px;
     border: 0px solid #000;
+  }
+
+  image.is-circle img {
+    border-radius: 50%;
   }
 
 </style>
