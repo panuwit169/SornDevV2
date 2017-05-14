@@ -5,6 +5,7 @@
     <coursemenu/>
     <banner2/>
     <popular/>
+    <footers/>
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import banner from '~components/banner.vue'
 import coursemenu from '~components/coursemenu.vue'
 import banner2 from '~components/banner2.vue'
 import popular from '~components/popular.vue'
+import footers from '~components/footers.vue'
 
 export default {
   components: {
@@ -22,7 +24,8 @@ export default {
     banner,
     coursemenu,
     banner2,
-    popular
+    popular,
+    footers
   }
 }
 </script>

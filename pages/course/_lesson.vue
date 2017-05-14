@@ -4,6 +4,7 @@
   <videoplay :courses="courses"/>
   <headplay :info="courses" />
   <comment :courses="courses"/>
+  <footers/>
 </div>
 </template>
 
@@ -14,13 +15,15 @@ import navbar from '~components/navbar.vue'
 import videoplay from '~components/videoplay.vue'
 import headplay from '~components/headplay.vue'
 import comment from '~components/comment.vue'
+import footers from '~components/footers.vue'
 
 export default {
   components: {
     navbar,
     videoplay,
     headplay,
-    comment
+    comment,
+    footers
   },
   data () {
     return {

@@ -6,7 +6,8 @@ import { firebaseMutations } from 'vuexfire'
 
 const store = new Vuex.Store({
   state: {
-    listplay: []
+    listplay: [],
+    listbook: []
   },
   getters,
   mutations: {
