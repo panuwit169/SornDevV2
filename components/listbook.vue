@@ -4,8 +4,8 @@
       <div class="title">
         <h1><strong>E-Bookทั้งหมด<br>ทั้ง Front-End และ Frameworks ต่าง ๆ</strong></h1>
       </div>
-      <div class="columns is-multiline">
-        <div class="column is-4" v-for = "list in listbook">
+      <div class="columns is-multiline is-mobile is-tablet is-desktop">
+        <div class="column is-12-mobile is-4-tablet is-4-desktop" v-for = "list in listbook">
           <div class="box">
             <a :href="list.link" target="_blank">
               <div style="vertical-align: middle">

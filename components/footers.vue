@@ -1,6 +1,6 @@
 <template>
   <div class="footer" id="radial-center">
-    <div class="container">
+    <div class="container is-hidden-mobile">
       <div class="columns">
         <div class="column is-6">
           <div class="link">

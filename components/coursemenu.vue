@@ -4,8 +4,8 @@
       <div class="title">
         <h1><strong>คู่มือเทคโนโลยีล่าสุด<br>Front-End และ Frameworks</strong></h1>
       </div>
-        <div class="columns">
-          <div class="column is-2" v-for = "(list, index) in listplay" v-show="index<6">
+        <div class="columns is-multiline is-mobile is-tablet is-desktop">
+          <div class="column is-6-mobile is-4-tablet is-2-desktop" v-for = "(list, index) in listplay" v-show="index<6">
             <div class="box">
               <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}" style="vertical-align: middle">
                 <img :src="list.img" width="120">

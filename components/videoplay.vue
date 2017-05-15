@@ -4,7 +4,7 @@
       <div class="columns" style="padding-top:50px">
         <div class="column is-9" style="padding:0px">
           <div style="border:5px solid #555">
-            <iframe style="width: 100%;" height="462px" width="100%" :src="'https://www.youtube.com/embed/'+ link + '?autoplay=1'" frameborder="0"></iframe>
+            <iframe style="width: 100%;" height="462px" width="100%" :src="'https://www.youtube.com/embed/'+ link + '?autoplay=1'" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="column is-3 scrollbar" id="style-1">
@@ -38,8 +38,8 @@
         'listplay'
       ]),
       courses () {
-        let vm = this
-        return vm.listplay.find(item => item.name === vm.$route.params.lesson)
+        let id = this.$route.params.lesson
+        return this.listplay.find(item => item.name === id)
       }
     },
     mounted () {

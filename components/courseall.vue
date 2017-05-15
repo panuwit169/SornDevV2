@@ -4,8 +4,8 @@
       <div class="title">
         <h1><strong>Course เรียนทั้งหมด<br>ทั้ง Front-End และ Frameworks ต่าง ๆ</strong></h1>
       </div>
-      <div class="columns is-multiline">
-        <div class="column is-4" v-for = "list in listplay">
+      <div class="columns is-multiline is-mobile is-tablet is-desktop">
+        <div class="column is-6-mobile is-4-tablet is-4-desktop" v-for = "list in listplay">
           <div class="box">
             <nuxt-link :to="{ name: 'course-lesson', params: { lesson:list.name }}">
               <div style="vertical-align: middle">

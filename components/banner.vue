@@ -2,7 +2,7 @@
   <div id="app">
     <div class="banner" id="radial-center">
       <div class="container">
-          <h1 class="banner_h1">วิดีโอการสอน Web Development สำหรับ Developer</h1>
+          <h1 class="banner_h1">วิดีโอการสอน Web Develop สำหรับ Developer</h1>
           <p class="banner_p">เรียนรู้ Frameworks ล่าสุดจากผู้เชี่ยวชาญเฉพาะทาง</p>
           <nuxt-link to = "/allcourse">
             <button class="button is-danger is-medium"><strong>เลือก Course เรียน</strong></button>
