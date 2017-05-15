@@ -14,7 +14,7 @@
         <span></span>
       </span>
       <div class="nav-right nav-menu">
-        <nuxt-link to="/course" class="nav-item is-tab is-hidden-tablet" style="background-color: #1b1920;">Courses</nuxt-link>
+        <nuxt-link to="/allcourse" class="nav-item is-tab is-hidden-tablet" style="background-color: #1b1920;">Courses</nuxt-link>
         <nuxt-link to="/ebook" class="nav-item is-tab is-hidden-tablet" style="background-color: #1b1920;">E-Book</nuxt-link>
         <div v-if="ready">
           <div v-if="authorized">
