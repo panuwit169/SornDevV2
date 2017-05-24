@@ -33,7 +33,12 @@
             </div>
             <div class="field">
               <p class="control">
-                <button class="button" @click="addComment()">Post comment</button>
+                <div v-if="commentInput">
+                  <button class="button" @click="addComment()">Post comment</button>
+                </div>
+                <div v-else>
+                  <button class="button" disabled >Post comment</button>
+                </div>
               </p>
             </div>
           </div>
